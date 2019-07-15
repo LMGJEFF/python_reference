@@ -1,0 +1,4 @@
+2019-07-14 23:34:37,842 - test.py - INFO - --------------------------------------------------------------------------------
+2019-07-14 23:34:37,846 - test.py - INFO - start_date is 20190629
+2019-07-14 23:34:37,846 - test.py - INFO - end_date is 20190702
+2019-07-14 23:34:37,846 - test.py - INFO - output_dir is /Users/kehanj/Documents/github/python_reference/output
