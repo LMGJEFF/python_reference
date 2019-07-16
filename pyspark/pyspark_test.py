@@ -1,0 +1,1 @@
+spark_df.write.mode('overwrite').csv('output')
