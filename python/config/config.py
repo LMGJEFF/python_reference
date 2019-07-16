@@ -17,18 +17,22 @@ output_dir = config.get('output', 'output_dir')
 query_prefix = '''
 SET hive.merge.tezfiles=true;
 SET hive.tez.auto.reducer.parallelism=true;
-SET hive.tez.java.opts=-xmx12288m;
+SET hive.tez.java.opts=-Xmx12288m;
 SET tez.am.resource.memory.mb=16384;
-SET tez.am.launch.cmd-opts=-xmx12288m;
+SET tez.am.launch.cmd-opts=-Xmx12288m;
 SET tez.runtime.sort.threads=2;
 SET tez.runtime.sorter.class=PIPELINED;
-SET tez.runtime.io.sort.mb=512;
 
 SET hcat.desired.partition.num.splits=100;
-SET mapreduce.input.fileinputformat.split.maxsize=67108864;
-SET mapreduce.input.fileinputformat.split.minsize=33554432;
-SET mapreduce.input.fileinputformat.split.minsize.per.rack=33554432;
-SET mapreduce.input.fileinputformat.split.minsize.per.node=33554432;
+SET hive.exec.orc.split.strategy=hybrid;
+SET hive.vectorized.execution.reduce.enabled=true;
+SET hive.vectorized.execution.reduce.groupby.enabled=true;
+SET hive.tez.input.format=org.apache.hadoop.hive.ql.io.CombineHiveInputFormat;
+SET hive.execution.engine=tez;
+SET tez.am.resource.memory.mb=6144;
+SET tez.am.launch.cmd-opts =-Xmx4096m;
+SET hive.tez.container.size=6144;
+SET hive.tez.java.opts=-Xmx4096m;
 '''
 
 
